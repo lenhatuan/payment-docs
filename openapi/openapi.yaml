@@ -46,7 +46,7 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - Payment order batchs
+        - Payment order batches
       summary: Tạo lệnh chi
       parameters:
         - in: header
@@ -97,7 +97,7 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - Payment order batchs
+        - Payment order batches
       summary: Truy vấn lệnh chi
       parameters:
         - in: header
