@@ -41,12 +41,12 @@ paths:
           description: Dữ liệu xung đột
         '500':
           description: Lỗi hệ thống
-  /payment-requests:
+  /payment-order-batches:
     post:
       security:
         - BearerAuth: []
       tags:
-        - Payment requests
+        - Payment order batchs
       summary: Tạo lệnh chi
       parameters:
         - in: header
@@ -92,12 +92,12 @@ paths:
           description: Dữ liệu xung đột
         '500':
           description: Lỗi hệ thống
-  /payment-orders/{id}:
+  /payment-order-batches/{id}:
     get:
       security:
         - BearerAuth: []
       tags:
-        - Payment orders
+        - Payment order batchs
       summary: Truy vấn lệnh chi
       parameters:
         - in: header
@@ -381,7 +381,7 @@ components:
         sofId:
           type: string
           description: "Id nguồn tiền"
-        transactions:
+        paymentOrders:
           type: array
           items:
               $ref: '#/components/schemas/TransactionRequest'
@@ -394,7 +394,7 @@ components:
         data: 
           type: object
           properties:
-            paymentOrderId:
+            paymentOrderBatchId:
               type: string
               description: "Id lệnh chi do Bizzi sinh ra"
     InquiryPaymentOrderResponse:
@@ -406,7 +406,7 @@ components:
         data:
           type: object
           properties:
-            transactions:
+            paymentOrders:
               type: array
               items:
                   $ref: '#/components/schemas/InquiryTransactionResponse'
@@ -473,7 +473,7 @@ components:
         remark: 
           type: string
           description: "Nội dung lệnh chi"
-        batches:
+        transactions:
           type: array
           items:
             type: object
