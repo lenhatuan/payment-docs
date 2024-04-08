@@ -472,20 +472,10 @@ components:
         remark: 
           type: string
           description: "Nội dung lệnh chi"
-        transactions:
-          type: array
-          items:
-            type: object
-            properties:
-              batchId:
-                type: string
-              amount:
-                type: number
-                description: Số tiền"
-              status:
-                type: string
-                format: enum
-                enum: ["SUCCESS, FAILED, PENDING, TIMEOUT"]
+        status:
+            type: string
+            format: enum
+            enum: ["SUCCESS, FAILED, PENDING, TIMEOUT"]
     InquirySofResponse:
       type: object
       properties:
