@@ -19,26 +19,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TokenRequest'
+              $ref: "#/components/schemas/TokenRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenResponse'          
-        '400':
+                $ref: "#/components/schemas/TokenResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
   /payment-order-batches:
     post:
@@ -70,26 +70,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PaymentOrdersRequest'
+              $ref: "#/components/schemas/PaymentOrdersRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaymentOrdersResponse'          
-        '400':
+                $ref: "#/components/schemas/PaymentOrdersResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
   /payment-order-batches/{id}:
     get:
@@ -129,23 +129,23 @@ paths:
             type: string
             description: "Mã giao dịch cần truy vấn do client truyền qua"
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InquiryPaymentOrderResponse'
-        '400':
+                $ref: "#/components/schemas/InquiryPaymentOrderResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
   /sofs:
     post:
@@ -154,7 +154,7 @@ paths:
       tags:
         - Source of funds
       summary: Tạo nguồn tiền
-      parameters: 
+      parameters:
         - in: header
           name: x-request-id
           schema:
@@ -195,24 +195,30 @@ paths:
                   default: ACCOUNT
                 bankNostro:
                   type: string
+              example:
+                bin: "970426"
+                bankAccountNumber: "11001011234215"
+                bankAccountName: "0000000000000620872"
+                type: "account"
+                bankNostro: "11001011234215"
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SofResponse'
-        '400':
+                $ref: "#/components/schemas/SofResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
   /sof/{id}:
     get:
@@ -247,23 +253,23 @@ paths:
           description: "Id nguồn tiền"
           required: true
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InquirySofResponse'          
-        '400':
+                $ref: "#/components/schemas/InquirySofResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
   /banks:
     get:
@@ -272,7 +278,7 @@ paths:
       tags:
         - Banks
       summary: Truy vấn danh sách ngân hàng
-      parameters: 
+      parameters:
         - in: header
           name: x-request-id
           schema:
@@ -292,23 +298,23 @@ paths:
           required: true
           description: sha-256 (  x-request-id + " | " + x-request-time " | " + stringify(sort(payload)) + " | " + encryptKey )
       responses:
-        '200':
+        "200":
           description: Thành công
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BankResponse'
-        '400':
+                $ref: "#/components/schemas/BankResponse"
+        "400":
           description: Dữ liệu gửi lên có vấn đề
-        '401':
+        "401":
           description: Không được phép truy cập
-        '403':
+        "403":
           description: Chưa được cấp quyền truy cập
-        '404':
+        "404":
           description: Không tìm thấy dữ liệu
-        '409':
+        "409":
           description: Dữ liệu xung đột
-        '500':
+        "500":
           description: Lỗi hệ thống
 components:
   securitySchemes:
@@ -317,29 +323,38 @@ components:
       scheme: bearer
   schemas:
     TokenRequest:
-        required:
-          - clientId
-          - clientSecret
-        type: object
-        properties:
-          clientId:
-            type: string
-          clientSecret:
-            type: string
+      required:
+        - clientId
+        - clientSecret
+      type: object
+      properties:
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+      example:
+        clientId: "4d00f37a-2f50-4c08-af00-cb97fa6a309e"
+        clientSecret: "0804d9e4be435940e1b63cb024d149a7"
     TokenResponse:
       type: object
       properties:
         statusCode:
           type: integer
           format: int32
-        data: 
+        data:
           type: object
           properties:
             token:
               type: string
             expiredAt:
               type: string
-              format: date-time 
+              format: date-time
+      example:
+        statusCode: 200
+        data:
+          value:
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjaGFudElkIjoiOGZiZTJkYjEtOTRiNC00YjRhLWJlMmUtMjUwMWFmOWIwZjkxIiwibWVyY2hhbnRDbGllbnRJZCI6IjE1OWNiNjUwLWJhMmEtNGYxYi04YjJlLTUwMjYzODlmODNlOCIsImlhdCI6MTcxMzgzNzMyMiwiZXhwIjoxNzEzODQwOTIyfQ.TGVHDEYdv-twwf2uYVBiPMcsEBf8uvTPKh7c-3388CA"
+            expiredAt: "2019-08-24T14:15:22Z"
     TransactionRequest:
       required:
         - refId
@@ -369,7 +384,7 @@ components:
           type: string
           description: "Loại giao dịch"
           enum: ["AUTO", "INTERNAL", "CITAD", "NAPAS"]
-        remark: 
+        remark:
           type: string
           description: "Nội dung lệnh chi"
     PaymentOrdersRequest:
@@ -383,19 +398,33 @@ components:
         paymentOrders:
           type: array
           items:
-              $ref: '#/components/schemas/TransactionRequest'
+            $ref: "#/components/schemas/TransactionRequest"
+      example:
+        sofId: "683cfaea-90a3-4e93-b305-da16a90e519a"
+        paymentOrders:
+          - refId: "b24dd1d5-b6c4-4806-8a55-e7a35c9a2298"
+            amount: 600000000
+            accountName: "NGUYEN VAN TEST"
+            accountNumber: "0129837294"
+            bankCode: "OCB"
+            channel: "AUTO"
+            remark: "chuyen tien thanh toan"
     PaymentOrdersResponse:
       type: object
       properties:
         statusCode:
           type: integer
           format: int32
-        data: 
+        data:
           type: object
           properties:
             paymentOrderBatchId:
               type: string
               description: "Id lệnh chi do Bizzi sinh ra"
+      example:
+        statusCode: 200
+        data:
+          paymentOrderBatchId: "504474d9-8a87-47d1-86f9-9b552409548d"
     InquiryPaymentOrderResponse:
       type: object
       properties:
@@ -408,7 +437,7 @@ components:
             paymentOrders:
               type: array
               items:
-                  $ref: '#/components/schemas/InquiryTransactionResponse'
+                $ref: "#/components/schemas/InquiryTransactionResponse"
     SofResponse:
       type: object
       properties:
@@ -421,6 +450,10 @@ components:
             sofId:
               type: string
               description: "Id nguồn tiền"
+      example:
+        statusCode: 200
+        data:
+          sofId: "504474d9-8a87-47d1-86f9-9b552409548d"
     BankResponse:
       type: object
       properties:
@@ -439,10 +472,19 @@ components:
                 description: "Tên ngân hàng"
               shortName:
                 type: string
-              swiftCode: 
+              swiftCode:
                 type: string
               logo:
                 type: string
+      example:
+        statusCode: 200
+        data:
+          - bin: "970426"
+            name: "Ngân hàng Thương mại Cổ phần Hàng Hải Việt Nam (Maritime Bank)"
+            shortName: "MSB"
+            swiftCode: "MCOBVNVX"
+            logo: "https://cdn.bizzi.services/banks/MSB.png"
+
     InquiryTransactionResponse:
       type: object
       properties:
@@ -469,13 +511,13 @@ components:
         channel:
           type: string
           description: "Loại giao dịch: INTERNAL, CITAD, NAPAS, AUTO"
-        remark: 
+        remark:
           type: string
           description: "Nội dung lệnh chi"
         status:
-            type: string
-            format: enum
-            enum: ["SUCCESS, FAILED, PENDING, TIMEOUT"]
+          type: string
+          format: enum
+          enum: ["SUCCESS, FAILED, PENDING, TIMEOUT"]
     InquirySofResponse:
       type: object
       properties:
@@ -497,6 +539,15 @@ components:
             branchCode:
               type: string
             type:
-              type: string 
+              type: string
             bankNostro:
               type: string
+      example:
+        statusCode: 200
+        data:
+          balance: 9999999999
+          bin: "970426"
+          bankAccountNumber: "11001011234215"
+          bankAccountName: "0000000000000620872"
+          type: "account"
+          bankNostro: "11001011234215"
